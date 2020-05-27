@@ -13,11 +13,8 @@ public class TaskManager {
 
         String[][] tasks = loadData("tasks.csv");
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(ConsoleColors.BLUE + "Please select an option:" + "\n" + ConsoleColors.RESET + "add" + "\n" + "remove" + "\n" + "list" + "\n" + "exit");
-
-        String option = scanner.nextLine();
-
+        String option = optionDisplay();
+        
     }
 
     public static String[][] loadData(String fileName) throws IOException {
@@ -41,7 +38,22 @@ public class TaskManager {
                 }
             }
         }
-
         return tasks;
     }
+
+    public static String optionDisplay() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(ConsoleColors.BLUE + "Please select an option:" + ConsoleColors.RESET);
+
+        String[] optional = {"add", "remove", "list", "exit"};
+
+        for (int i = 0; i < optional.length; i++) {
+            System.out.println(optional[i]);
+        }
+
+        String option = scanner.nextLine();
+
+        return option;
+    }
+
 }
