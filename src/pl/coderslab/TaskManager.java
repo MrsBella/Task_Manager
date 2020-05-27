@@ -13,8 +13,24 @@ public class TaskManager {
 
         String[][] tasks = loadData("tasks.csv");
 
-        String option = optionDisplay();
-        
+        boolean loop = true;
+
+        while (loop) {
+            String option = optionDisplay();
+            switch (option) {
+                case "list":
+                    list(tasks);
+                    System.out.println();
+                    break;
+                case "exit":
+                    loop = exit();
+                    break;
+                default:
+                    System.out.println("Please select a correct option.");
+                    System.out.println();
+            }
+        }
+
     }
 
     public static String[][] loadData(String fileName) throws IOException {
@@ -24,7 +40,7 @@ public class TaskManager {
         Scanner scan = new Scanner(file);
 
         long lineCount = Files.lines(path).count();
-        int count = (int)lineCount;
+        int count = (int) lineCount;
 
         String[][] tasks = new String[count][3];
 
@@ -54,6 +70,23 @@ public class TaskManager {
         String option = scanner.nextLine();
 
         return option;
+    }
+
+    public static void list(String[][] tasks) {
+        System.out.println("list");
+
+        for (int i = 0; i < tasks.length; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(i + " : " + tasks[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static boolean exit() {
+        System.out.println(ConsoleColors.RED + "Bye, bye." + ConsoleColors.RESET);
+        return false;
     }
 
 }
