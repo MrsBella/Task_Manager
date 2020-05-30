@@ -19,7 +19,6 @@ public class TaskManager {
         String[][] tasks = loadData("tasks.csv");
 
         boolean loop = true;
-
         while (loop) {
             String option = optionDisplay();
             switch (option) {
@@ -57,7 +56,8 @@ public class TaskManager {
         while (scan.hasNextLine()) {
 
             for (int i = 0; i < tasks.length; i++) {
-                String[] text = scan.nextLine().split(",");
+                String line = scan.nextLine().replaceAll("\\s+","");
+                String[] text = line.split(",");
                 for (int j = 0; j < 3; j++) {
                     tasks[i][j] = text[j];
                 }
@@ -77,7 +77,6 @@ public class TaskManager {
         }
 
         String option = scanner.nextLine();
-
         return option;
     }
 
@@ -85,10 +84,7 @@ public class TaskManager {
         System.out.println("list");
 
         for (int i = 0; i < tasks.length; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(i + " : " + tasks[i][j] + " ");
-            }
-            System.out.println();
+            System.out.println(i + " : " + tasks[i][0] + "  " + tasks[i][1] + "  " + tasks[i][2]);
         }
     }
 
@@ -115,14 +111,30 @@ public class TaskManager {
     public static String[][] add(String[][] tasks) {
         System.out.println("add");
         System.out.println("Please add task description:");
-
         Scanner scanner = new Scanner(System.in);
+
         String task = scanner.nextLine();
-
         System.out.println("Please add task due date:");
-        String dueDate = scanner.nextLine();
 
-        System.out.println("Is your task is important: true/false:");
+        String dueDate = "";
+
+        boolean loop = true;
+        while (loop) {
+            dueDate = scanner.nextLine();
+
+            char[] date = dueDate.toCharArray();
+
+            if ((Character.isDigit(date[0])) && (Character.isDigit(date[1])) &&
+                    (Character.isDigit(date[2])) && (Character.isDigit(date[3])) && (date[4] == '-') &&
+                    (Character.isDigit(date[5])) && (Character.isDigit(date[6])) && (date[7] == '-') &&
+                    (Character.isDigit(date[8])) && (Character.isDigit(date[9]))) {
+                System.out.println("Is your task is important: true/false:");
+                loop = false;
+            } else {
+                System.out.println("Please enter a valid date format YYYY-MM-DD:");
+            }
+        }
+
         String important = scanner.nextLine();
         System.out.println();
 
@@ -135,12 +147,12 @@ public class TaskManager {
         return newArray;
     }
 
+
     public static String[][] remove(String[][] tasks) {
         System.out.println("remove");
         System.out.println("Please select number to remove:");
 
         boolean loop = true;
-
         while (loop) {
             Scanner scanner = new Scanner(System.in);
             String remove = scanner.nextLine();
@@ -154,9 +166,7 @@ public class TaskManager {
                     System.out.println("Incorrect argument passed. Please give number greater or equal 0:");
                     continue;
                 }
-
                 System.out.println("Value was successfully deleted.");
-
                 loop = false;
                 System.out.println();
 
