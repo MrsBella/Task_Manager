@@ -45,8 +45,8 @@ public class TaskManager {
     public static String[][] loadData(String fileName) throws IOException {
         Path path = Paths.get(fileName);
 
-        File file = new File(fileName);
-        Scanner scan = new Scanner(file);
+      //  File file = new File(fileName);
+        Scanner scan = new Scanner(path);
 
         long lineCount = Files.lines(path).count();
         int count = (int) lineCount;
@@ -56,8 +56,8 @@ public class TaskManager {
         while (scan.hasNextLine()) {
 
             for (int i = 0; i < tasks.length; i++) {
-                String line = scan.nextLine().replaceAll("\\s+","");
-                String[] text = line.split(",");
+                String line = scan.nextLine().replaceAll(", ",";");
+                String[] text = line.split(";");
                 for (int j = 0; j < 3; j++) {
                     tasks[i][j] = text[j];
                 }
@@ -84,7 +84,7 @@ public class TaskManager {
         System.out.println("list");
 
         for (int i = 0; i < tasks.length; i++) {
-            System.out.println(i + " : " + tasks[i][0] + "  " + tasks[i][1] + "  " + tasks[i][2]);
+            System.out.println(i + " : " + tasks[i][0] + "  " +  tasks[i][1] + "  " + tasks[i][2]);
         }
     }
 
@@ -171,9 +171,6 @@ public class TaskManager {
                 System.out.println();
 
             } else if ((!(parsable)) || (Integer.parseInt(remove) < 0)) {
-                if (parsable) {
-                    System.out.println(Integer.parseInt(remove));
-                }
                 System.out.println("Incorrect argument passed. Please give number greater or equal 0:");
             }
         }
