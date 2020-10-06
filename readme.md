@@ -1,2 +1,13 @@
-Warsztaty Java.
-Program konsolowy do zarządzania zadaniami: Tasks.
+## TASK MANAGER
+> Workshop from Java. 
+
+Simple console task manager. 
+
+### Application functions:
+* displaying all available tasks
+* exit from application
+* adding tasks
+* deleting tasks
+* loading data from file on start application
+* saving data to file
+* validating a numeric value on delete
