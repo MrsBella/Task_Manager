@@ -3,7 +3,6 @@ package pl.coderslab;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -45,7 +44,6 @@ public class TaskManager {
     public static String[][] loadData(String fileName) throws IOException {
         Path path = Paths.get(fileName);
 
-      //  File file = new File(fileName);
         Scanner scan = new Scanner(path);
 
         long lineCount = Files.lines(path).count();
