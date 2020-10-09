@@ -14,3 +14,8 @@ Simple console task manager.
 
 ### Screenshots:
 ![task manager](/images/task_manager.png)
+![list](/images/list.png)
+![add](/images/add.png)
+![remove](/images/remove.png)
+![walidacja](/images/walidacja.png)
+![exit](/images/exit.png)
