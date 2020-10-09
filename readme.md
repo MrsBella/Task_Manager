@@ -13,9 +13,15 @@ Simple console task manager.
 * validating a numeric value on delete
 
 ### Screenshots:
+* task manager
 ![task manager](/images/task_manager.png)
+* list
 ![list](/images/list.png)
+* add
 ![add](/images/add.png)
+* remove
 ![remove](/images/remove.png)
+* validation remove
 ![walidacja](/images/walidacja.png)
+* exit
 ![exit](/images/exit.png)
