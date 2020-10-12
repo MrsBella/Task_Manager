@@ -1,9 +1,16 @@
-## TASK MANAGER
+# TASK MANAGER
 > Workshop from Java. 
 
-Simple console task manager. 
+## Table of contents
+[General info](#general-info) <br>
+[Application functions](#application-functions) <br>
+[Screenshots](#screenshots) <br>
+[Status](#status)
 
-### Application functions:
+## General info
+Simple console task manager.
+
+## Application functions:
 * displaying all available tasks
 * exit from application
 * adding tasks
@@ -12,7 +19,7 @@ Simple console task manager.
 * saving data to file
 * validating a numeric value on delete
 
-### Screenshots:
+## Screenshots:
 * task manager
 
 ![task manager](/images/task_manager.png)
@@ -31,3 +38,6 @@ Simple console task manager.
 * exit
 
 ![exit](/images/exit.png)
+
+## Status
+Project is: _finished_
